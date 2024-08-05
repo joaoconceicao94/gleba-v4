@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import {
@@ -77,6 +76,7 @@ const App = () => {
           <nav
             style={{
               display: "flex",
+              flexDirection: "row",
               justifyContent: "space-between",
               alignItems: "center",
               padding: "10px",
@@ -91,14 +91,11 @@ const App = () => {
             <Link to="/" style={{ textDecoration: "none" }}>
               <img src={logo} alt="Home" style={{ height: "40px" }} />
             </Link>
-            <SearchBar /> {/* Add SearchBar here */}
             <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px", // Add spacing between menu items
-              }}
+              className="nav-content"
+              style={{ display: "flex", alignItems: "center", gap: "10px" }}
             >
+              <SearchBar /> {/* Add SearchBar here */}
               <div
                 className="desktop-menu"
                 style={{ display: "flex", gap: "10px" }}
@@ -141,7 +138,15 @@ const App = () => {
             }}
           >
             <Routes>
-              <Route path="/" element={<div>Welcome to our store</div>} />
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Perks />
+                    <div>Welcome to our store</div>
+                  </>
+                }
+              />
               <Route
                 path="/padaria"
                 element={<ProductsList category="padaria" />}
@@ -155,8 +160,7 @@ const App = () => {
                 element={<ProductsList category="mercearia" />}
               />
               <Route path="/sobre-nos" element={<SobreNos />} />
-              <Route path="/cart" element={<CartPage />} />{" "}
-              {/* Add CartPage route */}
+              <Route path="/cart" element={<CartPage />} />
             </Routes>
           </main>
           <Footer
@@ -170,18 +174,33 @@ const App = () => {
         </div>
         <style>
           {`
-            @media (max-width: 768px) {
+            @media (max-width: 860px) {
+              nav {
+                flex-direction: column;
+                align-items: flex-start;
+              }
               .desktop-menu {
                 display: none;
               }
               .mobile-menu {
-                display: block;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+              }
+              .nav-content {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+              }
+              .nav-content .search-bar {
+                width: 100%;
+                margin-bottom: 10px; // Adjust as needed
               }
             }
           `}
         </style>
       </Router>
-      <Perks />
     </CartProvider>
   );
 };
