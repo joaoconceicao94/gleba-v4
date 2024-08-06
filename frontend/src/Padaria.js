@@ -15,16 +15,14 @@ const Padaria = () => {
         gutterBottom
         align=""
         sx={{ fontFamily: "Calibri, sans-serif", fontWeight: "bold" }}
-      >
-        Padaria
-      </Typography>
+      ></Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4}>
           <Link
             to="/padaria/edicoes-especiais"
             style={{ textDecoration: "none" }}
           >
-            <Button
+            {/* <Button
               variant="contained"
               fullWidth
               sx={{ fontFamily: "Calibri, sans-serif", fontWeight: "bold" }}
@@ -85,7 +83,7 @@ const Padaria = () => {
               sx={{ fontFamily: "Calibri, sans-serif", fontWeight: "bold" }}
             >
               Tostas
-            </Button>
+            </Button> */}
           </Link>
         </Grid>
       </Grid>

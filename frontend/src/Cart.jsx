@@ -38,9 +38,9 @@ const CartPage = () => {
 
       if (response.ok) {
         clearCart();
-        alert("Order placed successfully!");
+        alert("Encomenda feita com sucesso!");
       } else {
-        alert("Failed to place the order.");
+        alert("Ocorreu um erro. Tente novamente.");
       }
     } catch (error) {
       console.error("Error placing order:", error);

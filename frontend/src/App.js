@@ -146,8 +146,11 @@ const App = () => {
                 path="/"
                 element={
                   <>
+                    <WelcomeBanner />
                     <MelhorPao />
                     <Banner />
+                    &nbsp;
+                    <Perks />
                     {/* Other components that should be shown on the home page */}
                   </>
                 }

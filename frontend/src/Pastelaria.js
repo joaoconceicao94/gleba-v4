@@ -6,9 +6,9 @@ const Pastelaria = () => {
   return (
     <Container>
       <Typography
-        variant="h4"
+        variant="h5"
         component="h2"
-        align="right"
+        align="left"
         gutterBottom
         textAlign="left"
       >
