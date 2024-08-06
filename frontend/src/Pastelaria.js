@@ -5,7 +5,13 @@ import { Container, Typography } from "@mui/material";
 const Pastelaria = () => {
   return (
     <Container>
-      <Typography variant="h4" component="h2" align="center" gutterBottom>
+      <Typography
+        variant="h4"
+        component="h2"
+        align="right"
+        gutterBottom
+        textAlign="left"
+      >
         Pastelaria
       </Typography>
       {/* Add your Pastelaria content here */}

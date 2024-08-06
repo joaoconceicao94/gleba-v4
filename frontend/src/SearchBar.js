@@ -148,7 +148,7 @@ const SearchBar = () => {
             </MenuItem>
           ))
         ) : (
-          <MenuItem>No results found</MenuItem>
+          <MenuItem>Sem resultados</MenuItem>
         )}
       </Menu>
     </div>

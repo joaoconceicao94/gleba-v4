@@ -49,8 +49,15 @@ const ProductCard = ({ product, addToCart }) => {
           </Typography>
         </Box>
         <Box mt="auto">
-          <Button variant="contained" color="primary" onClick={handleAddToCart}>
-            Add to Cart
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "#FFC300",
+              "&:hover": { backgroundColor: "#e6b800" },
+            }}
+            onClick={handleAddToCart}
+          >
+            Comprar
           </Button>
         </Box>
       </CardContent>
