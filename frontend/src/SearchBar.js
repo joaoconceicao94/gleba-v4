@@ -92,7 +92,7 @@ const SearchBar = () => {
         value={query}
         onChange={handleChange}
         onClick={handleClick}
-        placeholder="Search products..."
+        placeholder="Procurar produtos..."
         variant="outlined"
         size="small"
         style={{ width: "300px" }}

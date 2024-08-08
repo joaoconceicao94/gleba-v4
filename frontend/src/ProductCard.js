@@ -11,7 +11,7 @@ import {
 
 const ProductCard = ({ product, addToCart }) => {
   const handleAddToCart = () => {
-    addToCart(product); // Call addToCart with the product
+    addToCart(product);
   };
 
   return (

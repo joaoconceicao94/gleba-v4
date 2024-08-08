@@ -9,7 +9,7 @@ const Footer = () => {
         padding: "20px",
         backgroundColor: "#f8f9fa",
         textAlign: "center",
-        position: "fixed", // Change to fixed to always stay at the bottom
+        position: "fixed",
         bottom: "0",
         width: "100%",
         borderTop: "1px solid #ddd",
@@ -22,7 +22,7 @@ const Footer = () => {
         style={{
           display: "flex",
           justifyContent: "center",
-          flexWrap: "wrap", // Make buttons wrap on smaller screens
+          flexWrap: "wrap",
           gap: "20px",
           marginBottom: "20px",
         }}

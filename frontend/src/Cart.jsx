@@ -131,11 +131,12 @@ const CartPage = () => {
       {cart.length > 0 && (
         <Button
           variant="contained"
-          color="primary"
           onClick={handlePlaceOrder}
           style={{
             marginTop: "20px",
             width: "100%",
+            backgroundColor: "#FFC300",
+            color: "#191919",
           }}
         >
           Fazer encomenda

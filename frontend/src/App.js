@@ -22,6 +22,7 @@ import Banner from "./Banner";
 import WelcomeBanner from "./WelcomeBanner";
 import "./output.css";
 import MelhorPao from "./MelhorPao";
+import { blue } from "@mui/material/colors";
 
 const App = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -146,7 +147,7 @@ const App = () => {
                 path="/"
                 element={
                   <>
-                    <WelcomeBanner />
+                    {/* <WelcomeBanner /> */}
                     <MelhorPao />
                     <Banner />
                     &nbsp;
@@ -158,6 +159,7 @@ const App = () => {
               <Route
                 path="/padaria"
                 element={<ProductsList category="padaria" />}
+                style="color: white"
               />
               <Route
                 path="/pastelaria"

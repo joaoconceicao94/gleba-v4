@@ -7,6 +7,9 @@ const theme = createTheme({
       main: "#FFD700", // Dark yellow color
     },
     // Define other colors if necessary
+    secondary: {
+      main: "#000000", // Black color
+    },
   },
 });
 

@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+// import React, { useState, useEffect } from "react";
+// import { useLocation } from "react-router-dom";
 
+// const SecondOne = () => {
+//     return (
 
-const SecondOne = () => {
-    return (
-        
-    )
-};
+//     )
+// };
 
-export default SecondOne;
+// export default SecondOne;
