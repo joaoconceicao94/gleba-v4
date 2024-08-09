@@ -126,11 +126,11 @@ const OrdersTable = () => {
         <table className="min-w-full bg-white border border-gray-200">
           <thead>
             <tr className="w-full bg-gray-100">
-              <th className="py-2 px-4 border-b">Order ID</th>
-              <th className="py-2 px-4 border-b">Total Price</th>
-              <th className="py-2 px-4 border-b">Status</th>
-              <th className="py-2 px-4 border-b">Created At</th>
-              <th className="py-2 px-4 border-b">Action</th>
+              <th className="py-2 px-4 border-b">ID</th>
+              <th className="py-2 px-4 border-b">Total</th>
+              <th className="py-2 px-4 border-b">Estado</th>
+              <th className="py-2 px-4 border-b">Criado</th>
+              <th className="py-2 px-4 border-b">Ação</th>
             </tr>
           </thead>
           <tbody>
@@ -152,13 +152,13 @@ const OrdersTable = () => {
                           onClick={() => handleConfirm(order._id)}
                           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
                         >
-                          Confirm
+                          Confirmar
                         </button>
                         <button
                           onClick={() => handleCancel(order._id)}
                           className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
                         >
-                          Cancel
+                          Cancelar
                         </button>
                       </>
                     )}
