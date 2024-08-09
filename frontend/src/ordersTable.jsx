@@ -121,16 +121,16 @@ const OrdersTable = () => {
 
   return (
     <div className="p-5">
-      <h1 className="text-2xl font-semibold mb-4">Encomendas</h1>
+      <h1 className="text-2xl font-semibold mb-4">Orders</h1>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-200">
           <thead>
             <tr className="w-full bg-gray-100">
-              <th className="py-2 px-4 border-b">ID</th>
-              <th className="py-2 px-4 border-b">Total</th>
-              <th className="py-2 px-4 border-b">Estado</th>
-              <th className="py-2 px-4 border-b">Criado</th>
-              <th className="py-2 px-4 border-b">Ação</th>
+              <th className="py-2 px-4 border-b">Order ID</th>
+              <th className="py-2 px-4 border-b">Total Price</th>
+              <th className="py-2 px-4 border-b">Status</th>
+              <th className="py-2 px-4 border-b">Created At</th>
+              <th className="py-2 px-4 border-b">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -145,22 +145,23 @@ const OrdersTable = () => {
                   {new Date(order.createdAt).toLocaleString()}
                 </td>
                 <td className="py-2 px-4 border-b flex space-x-2">
-                  {order.status !== "completed" && (
-                    <>
-                      <button
-                        onClick={() => handleConfirm(order._id)}
-                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                      >
-                        Confirmar
-                      </button>
-                      <button
-                        onClick={() => handleCancel(order._id)}
-                        className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-                      >
-                        Cancelar
-                      </button>
-                    </>
-                  )}
+                  {order.status !== "completed" &&
+                    order.status !== "cancelled" && (
+                      <>
+                        <button
+                          onClick={() => handleConfirm(order._id)}
+                          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                        >
+                          Confirm
+                        </button>
+                        <button
+                          onClick={() => handleCancel(order._id)}
+                          className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                        >
+                          Cancel
+                        </button>
+                      </>
+                    )}
                 </td>
               </tr>
             ))}
