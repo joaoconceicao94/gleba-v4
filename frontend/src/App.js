@@ -22,7 +22,7 @@ import Banner from "./Banner";
 import WelcomeBanner from "./WelcomeBanner";
 import "./output.css";
 import MelhorPao from "./MelhorPao";
-import { blue } from "@mui/material/colors";
+import AdminDashboard from "./AdminDashboard";
 
 const App = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -147,7 +147,6 @@ const App = () => {
                 path="/"
                 element={
                   <>
-                    {/* <WelcomeBanner /> */}
                     <MelhorPao />
                     <Banner />
                     &nbsp;
@@ -159,7 +158,6 @@ const App = () => {
               <Route
                 path="/padaria"
                 element={<ProductsList category="padaria" />}
-                style="color: white"
               />
               <Route
                 path="/pastelaria"
@@ -171,8 +169,12 @@ const App = () => {
               />
               <Route path="/sobre-nos" element={<SobreNos />} />
               <Route path="/cart" element={<CartPage />} />
+
+              {/* Admin dashboard route */}
+              <Route path="/admin" element={<AdminDashboard />} />
             </Routes>
           </main>
+
           <Footer
             style={{
               position: "fixed",
@@ -182,6 +184,26 @@ const App = () => {
             }}
           />
         </div>
+
+        {/* Discrete Admin Button */}
+        <Link
+          to="/admin"
+          style={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            backgroundColor: "#333",
+            color: "#fff",
+            padding: "10px 15px",
+            borderRadius: "5px",
+            textDecoration: "none",
+            fontSize: "14px",
+            zIndex: "1000",
+          }}
+        >
+          Admin
+        </Link>
+
         <style>
           {`
             @media (max-width: 860px) {
