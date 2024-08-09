@@ -121,7 +121,7 @@ const OrdersTable = () => {
 
   return (
     <div className="p-5">
-      <h1 className="text-2xl font-semibold mb-4">Orders</h1>
+      <h1 className="text-2xl font-semibold mb-4">Encomendas</h1>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-200">
           <thead>
