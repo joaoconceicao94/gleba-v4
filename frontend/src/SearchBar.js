@@ -92,7 +92,7 @@ const SearchBar = () => {
         value={query}
         onChange={handleChange}
         onClick={handleClick}
-        placeholder="Search products..."
+        placeholder="Procurar produtos..."
         variant="outlined"
         size="small"
         style={{ width: "300px" }}
@@ -108,7 +108,7 @@ const SearchBar = () => {
         anchorEl={anchorEl}
         open={Boolean(anchorEl) && results.length > 0}
         onClose={handleClose}
-        style={{ maxHeight: "300px", overflowY: "auto" }}
+        style={{ maxHeight: "500px", overflowY: "auto" }}
       >
         <div style={{ padding: "10px" }}>
           <Button
@@ -148,7 +148,7 @@ const SearchBar = () => {
             </MenuItem>
           ))
         ) : (
-          <MenuItem>No results found</MenuItem>
+          <MenuItem>Sem resultados</MenuItem>
         )}
       </Menu>
     </div>

@@ -13,6 +13,7 @@ const Padaria = () => {
         variant="h4"
         component="h1"
         gutterBottom
+        align=""
         sx={{ fontFamily: "Calibri, sans-serif", fontWeight: "bold" }}
       >
         Padaria

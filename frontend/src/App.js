@@ -15,9 +15,16 @@ import SobreNos from "./SobreNos";
 import Footer from "./Footer";
 import logo from "./logo.png";
 import { CartProvider } from "./CartContext";
-import SearchBar from "./SearchBar"; // Import the SearchBar
-import CartPage from "./Cart";
+import SearchBar from "./SearchBar";
 import Perks from "./Perks";
+import Banner from "./Banner";
+import WelcomeBanner from "./WelcomeBanner";
+import "./output.css";
+import MelhorPao from "./MelhorPao";
+import AdminDashboard from "./AdminDashboard";
+import Cart from "./Cart";
+import ProductDetailPage from "./ProductDetailPage";
+import ProductManagerDashboard from "./ProductManagerDashboard"; // Import the new ProductManagerDashboard component
 
 const App = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -70,7 +77,7 @@ const App = () => {
             minHeight: "100vh",
             margin: "0",
             padding: "0",
-            overflowX: "hidden", // Prevent horizontal overflow
+            overflowX: "hidden",
           }}
         >
           <nav
@@ -80,12 +87,12 @@ const App = () => {
               justifyContent: "space-between",
               alignItems: "center",
               padding: "10px",
-              backgroundColor: "#FFD700", // Dark yellow color
+              backgroundColor: "#FFD700",
               position: "fixed",
               width: "100%",
               top: "0",
               zIndex: "1000",
-              boxSizing: "border-box", // Ensure padding and borders are included in width calculation
+              boxSizing: "border-box",
             }}
           >
             <Link to="/" style={{ textDecoration: "none" }}>
@@ -95,7 +102,7 @@ const App = () => {
               className="nav-content"
               style={{ display: "flex", alignItems: "center", gap: "10px" }}
             >
-              <SearchBar /> {/* Add SearchBar here */}
+              <SearchBar />
               <div
                 className="desktop-menu"
                 style={{ display: "flex", gap: "10px" }}
@@ -132,8 +139,8 @@ const App = () => {
           <main
             style={{
               flex: "1",
-              marginTop: "60px", // Adjust according to navbar height
-              marginBottom: "200px", // Add margin-bottom for spacing
+              marginTop: "60px",
+              marginBottom: "200px",
               padding: "0",
             }}
           >
@@ -142,8 +149,10 @@ const App = () => {
                 path="/"
                 element={
                   <>
+                    <MelhorPao />
+                    <Banner />
+                    &nbsp;
                     <Perks />
-                    <div>Welcome to our store</div>
                   </>
                 }
               />
@@ -160,18 +169,65 @@ const App = () => {
                 element={<ProductsList category="mercearia" />}
               />
               <Route path="/sobre-nos" element={<SobreNos />} />
-              <Route path="/cart" element={<CartPage />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/products/:id" element={<ProductDetailPage />} />
+              <Route
+                path="/product-manager"
+                element={<ProductManagerDashboard />}
+              />
             </Routes>
           </main>
+
           <Footer
             style={{
               position: "fixed",
               bottom: "0",
               width: "100%",
-              boxSizing: "border-box", // Ensure padding and borders are included in width calculation
+              boxSizing: "border-box",
             }}
           />
         </div>
+
+        {/* Discreet Buttons */}
+        <div
+          style={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            display: "flex",
+            gap: "10px",
+            zIndex: "1000",
+          }}
+        >
+          <Link
+            to="/admin"
+            style={{
+              backgroundColor: "#333",
+              color: "#fff",
+              padding: "10px 15px",
+              borderRadius: "5px",
+              textDecoration: "none",
+              fontSize: "14px",
+            }}
+          >
+            Admin
+          </Link>
+          <Link
+            to="/product-manager"
+            style={{
+              backgroundColor: "#444",
+              color: "#fff",
+              padding: "10px 15px",
+              borderRadius: "5px",
+              textDecoration: "none",
+              fontSize: "14px",
+            }}
+          >
+            Product Manager
+          </Link>
+        </div>
+
         <style>
           {`
             @media (max-width: 860px) {
@@ -195,7 +251,11 @@ const App = () => {
               }
               .nav-content .search-bar {
                 width: 100%;
-                margin-bottom: 10px; // Adjust as needed
+                margin-bottom: 10px;
+              }
+              .banner {
+                height: 200px;
+                font-size: 18px;
               }
             }
           `}

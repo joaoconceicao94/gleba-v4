@@ -11,12 +11,23 @@ import {
   Button,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import { useCart } from "./CartContext";
 
 const CartPage = () => {
-  const { cart, removeFromCart, clearCart } = useCart();
+  const {
+    cart,
+    removeFromCart,
+    increaseQuantity,
+    decreaseQuantity,
+    clearCart,
+  } = useCart();
 
-  const total = cart.reduce((acc, product) => acc + product.price, 0);
+  const total = cart.reduce(
+    (acc, product) => acc + (product.price || 0) * product.quantity,
+    0
+  );
 
   const handlePlaceOrder = async () => {
     try {
@@ -28,7 +39,7 @@ const CartPage = () => {
         body: JSON.stringify({
           items: cart.map((product) => ({
             productId: product._id,
-            quantity: 1,
+            quantity: product.quantity,
             price: product.price,
           })),
           status: "pending",
@@ -38,9 +49,9 @@ const CartPage = () => {
 
       if (response.ok) {
         clearCart();
-        alert("Order placed successfully!");
+        alert("Encomenda feita com sucesso!");
       } else {
-        alert("Failed to place the order.");
+        alert("Ocorreu um erro. Tente novamente.");
       }
     } catch (error) {
       console.error("Error placing order:", error);
@@ -78,10 +89,27 @@ const CartPage = () => {
           >
             <ListItemText
               primary={product.name}
-              secondary={`€${product.price.toFixed(2)}`}
+              secondary={`€${parseFloat(product.price || 0).toFixed(2)} x ${
+                product.quantity
+              }`}
               style={{ marginBottom: "10px" }}
             />
-            <ListItemSecondaryAction>
+
+            <div>
+              <IconButton
+                edge="start"
+                aria-label="increase"
+                onClick={() => increaseQuantity(product._id)}
+              >
+                <AddIcon />
+              </IconButton>
+              <IconButton
+                edge="start"
+                aria-label="decrease"
+                onClick={() => decreaseQuantity(product._id)}
+              >
+                <RemoveIcon />
+              </IconButton>
               <IconButton
                 edge="end"
                 aria-label="delete"
@@ -89,7 +117,7 @@ const CartPage = () => {
               >
                 <DeleteIcon />
               </IconButton>
-            </ListItemSecondaryAction>
+            </div>
           </ListItem>
         ))}
       </List>
@@ -106,11 +134,12 @@ const CartPage = () => {
       {cart.length > 0 && (
         <Button
           variant="contained"
-          color="primary"
           onClick={handlePlaceOrder}
           style={{
             marginTop: "20px",
             width: "100%",
+            backgroundColor: "#FFC300",
+            color: "#191919",
           }}
         >
           Fazer encomenda
